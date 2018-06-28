@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="demo.css">
+  <!-- <script src="demo.js"></script>  -->
+</head>
+<body>
+<div id="page-wrapper">
+  <h1>Web Speech Synthesis Demo</h1>
+  
+  <p id="msg"></p>
+
+  <form id="speech-form" action="/" name="text_form method="get" enctype="application/x-www-form-urlencoded">
+  <input type="text" name="speech-msg" id="speech-msg" x-webkit-speech>
+</form>	
+	<div class="option">
+		<label for="voice">Voice</label>
+		<select name="voice" id="voice"></select>
+	</div>
+	<div class="option">
+		<label for="volume">Volume</label>
+		<input type="range" min="0" max="1" step="0.1" name="volume" id="volume" value="1">
+	</div>
+	<div class="option">
+		<label for="rate">Rate</label>
+		<input type="range" min="0.1" max="10" step="0.1" name="rate" id="rate" value="1">
+	</div>
+	<div class="option">
+		<label for="pitch">Pitch</label>
+		<input type="range" min="0" max="2" step="0.1" name="pitch" id="pitch" value="1">
+	</div>
+	
+
+	<button id="speak">Speak</button>
+</div>
+<script language="JavaScript">
+
+	function addComment()
+	{
+		var parameters = location.search.substring(1).split("&");
+		console.log(parameters);
+
+		var temp = parameters[0].split("=");
+		l = unescape(temp[1]);
+		console.log(temp[1])
+
+		//temp = parameters[1].split("=");
+		//c = unescape(temp[1]);
+
+		document.getElementById("speech-msg").innerHTML = l;
+		//document.getElementById("pass").innerHTML = c;
+	}
+addComment();
+
+</script>
+<script type="text/javascript" src="demo.js"></script>
+</body>
+</html>
